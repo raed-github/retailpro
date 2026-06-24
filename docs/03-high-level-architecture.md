@@ -1,1 +1,23 @@
-# 03-high-level-architecture.md
+# High Level Architecture
+
+Client
+
+↓
+
+Swagger UI
+
+↓
+
+Spring Boot API
+
+↓
+
+Service Layer
+
+↓
+
+Repository Layer
+
+↓
+
+PostgreSQL
