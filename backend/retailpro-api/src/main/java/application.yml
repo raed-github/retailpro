@@ -1,0 +1,22 @@
+spring:
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/retailpro
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    show-sql: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
