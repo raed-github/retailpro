@@ -1,22 +1,64 @@
 spring:
 
+  application:
+    name: RetailPro
+
   datasource:
     url: jdbc:postgresql://localhost:5432/retailpro
     username: postgres
     password: postgres
+    driver-class-name: org.postgresql.Driver
 
   jpa:
+    open-in-view: false
+
     hibernate:
       ddl-auto: update
 
     show-sql: true
 
+    properties:
+      hibernate:
+        format_sql: true
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  cache:
+    type: redis
+
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+
+  api-docs:
+    path: /v3/api-docs
 
 management:
   endpoints:
     web:
       exposure:
         include: health,info
+
+  endpoint:
+    health:
+      show-details: always
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.springframework.security: INFO
+    com.rsaad.retailpro: DEBUG
+
+jwt:
+  secret: 9b2e4c7f8d1a3e5f6c8b9a2d4e6f7a8b1c3d5e7f9a2b4c6d8e1f3a5c7b9d2e4f6a8c1e3d5f7b9a2c4e6d8f1a3b5c7d9
+  expiration: 3600000
+
+cors:
+  allowed-origins:
+    - http://localhost:3000
